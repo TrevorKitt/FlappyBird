@@ -71,13 +71,6 @@ class Foreground(pg.sprite.Sprite):
         self.rect = pg.Rect(self.position, int(3 * WINDOW_HEIGHT/4), self.size[0], self.size[1])
 
 
-class OkButton(pg.sprite.Sprite):
-    def __init__(self, image, size):
-        super(OkButton, self).__init__()
-        self.image = image
-        self.rect = pg.Rect(250,300, size[0], size[1])
-
-
 class App:
     def __init__(self):
         pg.init()
