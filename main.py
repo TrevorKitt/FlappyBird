@@ -200,8 +200,11 @@ class App:
             self.distance_to_next_pipe += FOREGROUND_MOMENTUM
             self.remove_old_pipes()
             self.count_pipes_passed()
-            if pg.sprite.spritecollideany(self.bird, self.pipe_group) or pg.sprite.spritecollideany(self.bird, self.foreground_group):
+            if pg.sprite.spritecollideany(self.bird, self.foreground_group):
                 self.gameover()
+            for pipe in self.pipe_group:
+                if pg.sprite.collide_mask(self.bird, pipe):
+                    self.gameover()
             if self.distance_to_next_pipe <= 0:
                 self.add_new_pipes()
 
